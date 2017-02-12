@@ -1,0 +1,10 @@
+# BinarySpell Static Site Generators
+
+To add a static site generator of your choice do the following:
+
+  1. Create a folder with the name of your static site generator e.g. hugo
+  2. Create the following files in that directory
+    1. README.md: explaining what the static site generator is
+    2. Dockerfile: containing the code to build the image for this static site generator
+    3. init.sh: script used to create the new repo, this gets the repo_name and repo_path as the args
+    4. build.sh: script used to build the generator, this gets the repo_name, repo_path, and output_path as the args
