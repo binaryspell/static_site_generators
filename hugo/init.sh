@@ -1,8 +1,12 @@
 #!/bin/bash -e
 # this runs inside a docker container
 
+set -x
+
+echo "$*"
+
 repo_name="$1"
-repo_path="$(realpath "$2")"
+repo_path="/opt/build"
 
 cd "$repo_path"
 
@@ -23,5 +27,3 @@ echo -e "# Hello, World!\nWelcome to your doom!" >> content/post/hello-world.md
 git submodule add "https://github.com/htdvisser/hugo-base16-theme" themes/base16
 echo 'theme = "base16"' >> "config.toml"
 sed -i -e '/baseURL/d' "config.toml"
-
-#docker run --rm --volume="$repo_path:/opt/build" "$docker_image" hugo new site "$repo_name" "$repo_path"""
